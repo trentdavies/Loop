@@ -16,7 +16,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private(set) lazy var deviceManager = DeviceDataManager()
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window?.tintColor = UIColor.tintColor
 
         NotificationManager.authorize(delegate: self)

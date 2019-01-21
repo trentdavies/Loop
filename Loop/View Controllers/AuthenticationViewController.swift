@@ -111,11 +111,11 @@ final class AuthenticationViewController<T: ServiceAuthentication>: UITableViewC
 
             switch state {
             case .authorized:
-                cell.button.setTitle(NSLocalizedString("Delete Account", comment: "The title of the button to remove the credentials for a service"), for: UIControlState())
-                cell.button.setTitleColor(UIColor.deleteColor, for: UIControlState())
+                cell.button.setTitle(NSLocalizedString("Delete Account", comment: "The title of the button to remove the credentials for a service"), for: UIControl.State())
+                cell.button.setTitleColor(UIColor.deleteColor, for: UIControl.State())
             case .empty, .unauthorized, .verifying:
-                cell.button.setTitle(NSLocalizedString("Add Account", comment: "The title of the button to add the credentials for a service"), for: UIControlState())
-                cell.button.setTitleColor(nil, for: UIControlState())
+                cell.button.setTitle(NSLocalizedString("Add Account", comment: "The title of the button to add the credentials for a service"), for: UIControl.State())
+                cell.button.setTitleColor(nil, for: UIControl.State())
             }
 
             if case .verifying = state {

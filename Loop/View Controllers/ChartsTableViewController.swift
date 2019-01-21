@@ -86,10 +86,10 @@ class ChartsTableViewController: UITableViewController, UIGestureRecognizerDeleg
 
         let notificationCenter = NotificationCenter.default
         notificationObservers += [
-            notificationCenter.addObserver(forName: .UIApplicationWillResignActive, object: UIApplication.shared, queue: .main) { [weak self] _ in
+            notificationCenter.addObserver(forName: UIApplication.willResignActiveNotification, object: UIApplication.shared, queue: .main) { [weak self] _ in
                 self?.active = false
             },
-            notificationCenter.addObserver(forName: .UIApplicationDidBecomeActive, object: UIApplication.shared, queue: .main) { [weak self] _ in
+            notificationCenter.addObserver(forName: UIApplication.didBecomeActiveNotification, object: UIApplication.shared, queue: .main) { [weak self] _ in
                 self?.active = true
             }
         ]
