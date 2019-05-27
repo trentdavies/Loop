@@ -84,15 +84,15 @@ class RecommendTempBasalTests: XCTestCase {
     }
 
     var glucoseTargetRange: GlucoseRangeSchedule {
-        return GlucoseRangeSchedule(unit: HKUnit.milligramsPerDeciliter, dailyItems: [RepeatingScheduleValue(startTime: TimeInterval(0), value: DoubleRange(minValue: 90, maxValue: 120))])!
+        return GlucoseRangeSchedule(unit: HKUnit.milligramsPerDeciliter, dailyItems: [RepeatingScheduleValue(startTime: TimeInterval(0), value: DoubleRange(minValue: 95, maxValue: 95))])!
     }
 
     var insulinSensitivitySchedule: InsulinSensitivitySchedule {
-        return InsulinSensitivitySchedule(unit: HKUnit.milligramsPerDeciliter, dailyItems: [RepeatingScheduleValue(startTime: 0.0, value: 60.0)])!
+        return InsulinSensitivitySchedule(unit: HKUnit.milligramsPerDeciliter, dailyItems: [RepeatingScheduleValue(startTime: 0.0, value: 150.0)])!
     }
     
     var suspendThreshold: GlucoseThreshold {
-        return GlucoseThreshold(unit: HKUnit.milligramsPerDeciliter, value: 55)
+        return GlucoseThreshold(unit: HKUnit.milligramsPerDeciliter, value: 65)
     }
 
     var insulinModel: InsulinModel {
@@ -118,6 +118,32 @@ class RecommendTempBasalTests: XCTestCase {
         )
 
         XCTAssertNil(dose)
+    }
+    
+    func testZeroTempGhost() {
+        let glucose = loadGlucoseValueFixture("recommend_temp_basal_ghost-zerotemp")
+        let basalRateSchedule = loadBasalRateScheduleFixture("ghost-zerotemp_basal_profile")
+        let maxBasalRate = 2.0
+        
+        let dose = glucose.recommendedTempBasal(
+            to: glucoseTargetRange,
+            at: glucose.first!.startDate,
+            suspendThreshold: suspendThreshold.quantity,
+            sensitivity: insulinSensitivitySchedule,
+            model: insulinModel, //TODO: change to rapid child
+            basalRates: basalRateSchedule,
+            maxBasalRate: maxBasalRate,
+            lastTempBasal: nil
+        )
+        print("==========================")
+        
+        print(glucose)
+        print(basalRateSchedule)
+        print(dose)
+        
+        print("==========================")
+        XCTAssertEqual(0.8, dose!.unitsPerHour, accuracy: 1.0 / 40.0)
+        XCTAssertEqual(TimeInterval(minutes: 30), dose!.duration)
     }
 
     func testNoChangeOverrideActive() {
