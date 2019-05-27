@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		1DEBA97B229B616800F4B92C /* recommend_temp_basal_ghost-zerotemp.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBA97A229B616800F4B92C /* recommend_temp_basal_ghost-zerotemp.json */; };
+		1DEBA97D229B61B400F4B92C /* ghost-zerotemp_basal_profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBA97C229B61B400F4B92C /* ghost-zerotemp_basal_profile.json */; };
 		43027F0F1DFE0EC900C51989 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F526D5E1DF2459000A04910 /* HKUnit.swift */; };
 		4302F4E11D4E9C8900F0FCAF /* TextFieldTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4302F4E01D4E9C8900F0FCAF /* TextFieldTableViewController.swift */; };
 		4302F4E31D4EA54200F0FCAF /* InsulinDeliveryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4302F4E21D4EA54200F0FCAF /* InsulinDeliveryTableViewController.swift */; };
@@ -590,6 +592,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1DEBA97A229B616800F4B92C /* recommend_temp_basal_ghost-zerotemp.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "recommend_temp_basal_ghost-zerotemp.json"; sourceTree = "<group>"; };
+		1DEBA97C229B61B400F4B92C /* ghost-zerotemp_basal_profile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "ghost-zerotemp_basal_profile.json"; sourceTree = "<group>"; };
 		4302F4E01D4E9C8900F0FCAF /* TextFieldTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewController.swift; sourceTree = "<group>"; };
 		4302F4E21D4EA54200F0FCAF /* InsulinDeliveryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InsulinDeliveryTableViewController.swift; sourceTree = "<group>"; };
 		430B29892041F54A00BA9F93 /* NSUserDefaults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSUserDefaults.swift; sourceTree = "<group>"; };
@@ -1469,6 +1473,8 @@
 				C17824A21E19EAB600D9D25C /* recommend_temp_basal_start_very_low_end_high.json */,
 				C12F21A61DFA79CB00748193 /* recommend_temp_basal_very_low_end_in_range.json */,
 				436D9BF71F6F4EA100CFA75F /* recommended_temp_start_low_end_just_above_range.json */,
+				1DEBA97A229B616800F4B92C /* recommend_temp_basal_ghost-zerotemp.json */,
+				1DEBA97C229B61B400F4B92C /* ghost-zerotemp_basal_profile.json */,
 			);
 			path = Fixtures;
 			sourceTree = "<group>";
@@ -2243,12 +2249,14 @@
 				436D9BF81F6F4EA100CFA75F /* recommended_temp_start_low_end_just_above_range.json in Resources */,
 				7D7076681FE0702F004AC8EA /* InfoPlist.strings in Resources */,
 				43E2D8ED1D20C0DB004DA55F /* recommend_temp_basal_correct_low_at_min.json in Resources */,
+				1DEBA97D229B61B400F4B92C /* ghost-zerotemp_basal_profile.json in Resources */,
 				43E2D8F01D20C0DB004DA55F /* recommend_temp_basal_high_and_rising.json in Resources */,
 				C12F21A71DFA79CB00748193 /* recommend_temp_basal_very_low_end_in_range.json in Resources */,
 				43E2D8F11D20C0DB004DA55F /* recommend_temp_basal_in_range_and_rising.json in Resources */,
 				43E2D8EE1D20C0DB004DA55F /* recommend_temp_basal_flat_and_high.json in Resources */,
 				C1C6591C1E1B1FDA0025CC58 /* recommend_temp_basal_dropping_then_rising.json in Resources */,
 				43E2D8F31D20C0DB004DA55F /* recommend_temp_basal_start_high_end_in_range.json in Resources */,
+				1DEBA97B229B616800F4B92C /* recommend_temp_basal_ghost-zerotemp.json in Resources */,
 				43E2D8F51D20C0DB004DA55F /* recommend_temp_basal_start_low_end_high.json in Resources */,
 				C10B28461EA9BA5E006EA1FC /* far_future_high_bg_forecast.json in Resources */,
 				43E2D8EC1D20C0DB004DA55F /* read_selected_basal_profile.json in Resources */,
