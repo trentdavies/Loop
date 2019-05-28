@@ -84,15 +84,15 @@ class RecommendTempBasalTests: XCTestCase {
     }
 
     var glucoseTargetRange: GlucoseRangeSchedule {
-        return GlucoseRangeSchedule(unit: HKUnit.milligramsPerDeciliter, dailyItems: [RepeatingScheduleValue(startTime: TimeInterval(0), value: DoubleRange(minValue: 95, maxValue: 95))])!
+        return GlucoseRangeSchedule(unit: HKUnit.milligramsPerDeciliter, dailyItems: [RepeatingScheduleValue(startTime: TimeInterval(0), value: DoubleRange(minValue: 90, maxValue: 120))])!
     }
 
     var insulinSensitivitySchedule: InsulinSensitivitySchedule {
-        return InsulinSensitivitySchedule(unit: HKUnit.milligramsPerDeciliter, dailyItems: [RepeatingScheduleValue(startTime: 0.0, value: 150.0)])!
+        return InsulinSensitivitySchedule(unit: HKUnit.milligramsPerDeciliter, dailyItems: [RepeatingScheduleValue(startTime: 0.0, value: 60.0)])!
     }
     
     var suspendThreshold: GlucoseThreshold {
-        return GlucoseThreshold(unit: HKUnit.milligramsPerDeciliter, value: 65)
+        return GlucoseThreshold(unit: HKUnit.milligramsPerDeciliter, value: 55)
     }
 
     var insulinModel: InsulinModel {
@@ -121,28 +121,30 @@ class RecommendTempBasalTests: XCTestCase {
     }
     
     func testZeroTempGhost() {
-        let glucose = loadGlucoseValueFixture("recommend_temp_basal_ghost-zerotemp")
-        let basalRateSchedule = loadBasalRateScheduleFixture("ghost-zerotemp_basal_profile")
-        let maxBasalRate = 2.0
+        let myGlucoseTargetRange            = GlucoseRangeSchedule(unit: HKUnit.milligramsPerDeciliter, dailyItems: [RepeatingScheduleValue(startTime: TimeInterval(0), value: DoubleRange(minValue: 95, maxValue: 95))])!
+        let myGlucose                       = loadGlucoseValueFixture("recommend_temp_basal_ghost-zerotemp1")
+        let mySuspendThreshold              = GlucoseThreshold(unit: HKUnit.milligramsPerDeciliter, value: 65)
+        let myInsulinSensitivitySchedule    = InsulinSensitivitySchedule(unit: HKUnit.milligramsPerDeciliter, dailyItems: [RepeatingScheduleValue(startTime: 0.0, value: 150.0)])!
+        let myInsulinModel                  = ExponentialInsulinModel(actionDuration: 360, peakActivityTime: 65, initialDelay: 20) //humalog child
+        let myBasalRateSchedule             = loadBasalRateScheduleFixture("ghost-zerotemp_basal_profile")
+        let myMaxBasalRate                  = 2.0
         
-        let dose = glucose.recommendedTempBasal(
-            to: glucoseTargetRange,
-            at: glucose.first!.startDate,
-            suspendThreshold: suspendThreshold.quantity,
-            sensitivity: insulinSensitivitySchedule,
-            model: insulinModel, //TODO: change to rapid child
-            basalRates: basalRateSchedule,
-            maxBasalRate: maxBasalRate,
-            lastTempBasal: nil
+        let dose = myGlucose.recommendedTempBasal(
+            to: myGlucoseTargetRange,
+            at: myGlucose.first!.startDate,
+            suspendThreshold: mySuspendThreshold.quantity,
+            sensitivity: myInsulinSensitivitySchedule,
+            model: myInsulinModel,
+            basalRates: myBasalRateSchedule,
+            maxBasalRate: myMaxBasalRate,
+            lastTempBasal: nil,
+            rateRounder: {(x: Double)-> Double in return Double(Int(x / 0.025)) * 0.025}
         )
         print("==========================")
-        
-        print(glucose)
-        print(basalRateSchedule)
         print(dose)
-        
         print("==========================")
-        XCTAssertEqual(0.8, dose!.unitsPerHour, accuracy: 1.0 / 40.0)
+
+        XCTAssertEqual(0.7, dose!.unitsPerHour, accuracy: 1.0 / 40.0)
         XCTAssertEqual(TimeInterval(minutes: 30), dose!.duration)
     }
 

@@ -22,6 +22,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		1DC24996229CAB370046CD6E /* recommend_temp_basal_ghost-zerotemp1.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DC24995229CAB360046CD6E /* recommend_temp_basal_ghost-zerotemp1.json */; };
 		1DEBA97B229B616800F4B92C /* recommend_temp_basal_ghost-zerotemp.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBA97A229B616800F4B92C /* recommend_temp_basal_ghost-zerotemp.json */; };
 		1DEBA97D229B61B400F4B92C /* ghost-zerotemp_basal_profile.json in Resources */ = {isa = PBXBuildFile; fileRef = 1DEBA97C229B61B400F4B92C /* ghost-zerotemp_basal_profile.json */; };
 		43027F0F1DFE0EC900C51989 /* HKUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F526D5E1DF2459000A04910 /* HKUnit.swift */; };
@@ -592,6 +593,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1DC24995229CAB360046CD6E /* recommend_temp_basal_ghost-zerotemp1.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "recommend_temp_basal_ghost-zerotemp1.json"; sourceTree = "<group>"; };
 		1DEBA97A229B616800F4B92C /* recommend_temp_basal_ghost-zerotemp.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "recommend_temp_basal_ghost-zerotemp.json"; sourceTree = "<group>"; };
 		1DEBA97C229B61B400F4B92C /* ghost-zerotemp_basal_profile.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "ghost-zerotemp_basal_profile.json"; sourceTree = "<group>"; };
 		4302F4E01D4E9C8900F0FCAF /* TextFieldTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewController.swift; sourceTree = "<group>"; };
@@ -1457,6 +1459,7 @@
 		43E2D8E01D20C0CB004DA55F /* Fixtures */ = {
 			isa = PBXGroup;
 			children = (
+				1DC24995229CAB360046CD6E /* recommend_temp_basal_ghost-zerotemp1.json */,
 				C10B28451EA9BA5E006EA1FC /* far_future_high_bg_forecast.json */,
 				43E2D8E11D20C0DB004DA55F /* read_selected_basal_profile.json */,
 				43E2D8E21D20C0DB004DA55F /* recommend_temp_basal_correct_low_at_min.json */,
@@ -2240,6 +2243,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DC24996229CAB370046CD6E /* recommend_temp_basal_ghost-zerotemp1.json in Resources */,
 				7D7076591FE06EE2004AC8EA /* Localizable.strings in Resources */,
 				43E2D8F21D20C0DB004DA55F /* recommend_temp_basal_no_change_glucose.json in Resources */,
 				43E2D8F61D20C0DB004DA55F /* recommend_temp_basal_start_low_end_in_range.json in Resources */,
